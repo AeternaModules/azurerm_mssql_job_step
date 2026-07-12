@@ -1,3 +1,7 @@
+output "mssql_job_steps_id" {
+  description = "Map of id values across all mssql_job_steps, keyed the same as var.mssql_job_steps"
+  value       = { for k, v in azurerm_mssql_job_step.mssql_job_steps : k => v.id }
+}
 output "mssql_job_steps_initial_retry_interval_seconds" {
   description = "Map of initial_retry_interval_seconds values across all mssql_job_steps, keyed the same as var.mssql_job_steps"
   value       = { for k, v in azurerm_mssql_job_step.mssql_job_steps : k => v.initial_retry_interval_seconds }
