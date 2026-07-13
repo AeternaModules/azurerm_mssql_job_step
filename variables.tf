@@ -27,16 +27,16 @@ EOT
     job_target_group_id               = string
     name                              = string
     sql_script                        = string
-    initial_retry_interval_seconds    = optional(number) # Default: 1
+    initial_retry_interval_seconds    = optional(number)
     job_credential_id                 = optional(string)
-    maximum_retry_interval_seconds    = optional(number) # Default: 120
-    retry_attempts                    = optional(number) # Default: 10
-    retry_interval_backoff_multiplier = optional(number) # Default: 2
-    timeout_seconds                   = optional(number) # Default: 43200
+    maximum_retry_interval_seconds    = optional(number)
+    retry_attempts                    = optional(number)
+    retry_interval_backoff_multiplier = optional(number)
+    timeout_seconds                   = optional(number)
     output_target = optional(object({
       job_credential_id = optional(string)
       mssql_database_id = string
-      schema_name       = optional(string) # Default: "dbo"
+      schema_name       = optional(string)
       table_name        = string
     }))
   }))
