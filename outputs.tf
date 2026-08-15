@@ -32,7 +32,7 @@ output "mssql_job_steps_name" {
 }
 output "mssql_job_steps_output_target" {
   description = "Map of output_target values across all mssql_job_steps, keyed the same as var.mssql_job_steps"
-  value       = { for k, v in azurerm_mssql_job_step.mssql_job_steps : k => v.output_target if v.output_target != null && length(v.output_target) > 0 }
+  value       = { for k, v in azurerm_mssql_job_step.mssql_job_steps : k => one(v.output_target) if v.output_target != null && length(v.output_target) > 0 }
 }
 output "mssql_job_steps_retry_attempts" {
   description = "Map of retry_attempts values across all mssql_job_steps, keyed the same as var.mssql_job_steps"
